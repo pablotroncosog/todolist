@@ -1,0 +1,26 @@
+h2{
+  text-align:center;
+}
+
+
+h2 a {
+  color: rgb(50,50,50);
+  text-decoration: none;
+ }
+
+
+#muevete {
+  position: absolute;
+  top: 30%;
+}
+#botonsito {
+  visibility: hidden;
+}
+
+#deletebtn {
+  margin-left: 80px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
