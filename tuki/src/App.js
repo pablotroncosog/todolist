@@ -9,60 +9,80 @@ function App() {
 
   useEffect(() => {
     getTareas()
-  }, []) 
 
-  
+  }, [])
+
+
   const getTareas = () => {
-    fetch('https://assets.breatheco.de/apis/fake/todos/user/pablotroncoso', 
-    {
-      method: "GET",
-     
-    })
-    .then(resp => {
-      console.log(resp, "respuesta");
-      return resp.json();
-    })
-    .then(data => {setActividades(data);})
-    .catch(error => {
-      console.log(error);
-    });
+    fetch('https://assets.breatheco.de/apis/fake/todos/user/pablotroncosog',
+      {
+        method: "GET",
+      })
+      .then(resp => {
+        console.log(resp, "respuesta");
+        return resp.json();
+      })
+      .then(data => { setActividades(data); })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   const putTareas = (actividad) => {
-    fetch('https://assets.breatheco.de/apis/fake/todos/user/pablotroncoso', 
-    {
-      method: "PUT",
-      Headers: {"Content-Type": "application/json"},
-      body:JSON.stringify(actividad)
-     
-    })
-    .then(resp => {
-      console.log(resp, "respuesta");
-      return resp.json();
-    })
-    .then(data => {console.log(data);})
-    .catch(error => {
-      console.log(error);
-    });
+    fetch('https://assets.breatheco.de/apis/fake/todos/user/pablotroncosog',
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(actividad)
+
+      })
+      .then(resp => {
+        console.log(resp, "respuesta");
+        return resp.json();
+      })
+      .then(data => { console.log(data); })
+      .catch(error => {
+        console.log(error);
+      });
   }
+
+
+  const modificarTareas = (actividad) => {
+    fetch('https://assets.breatheco.de/apis/fake/todos/user/pablotroncosog',
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(actividad)
+
+      })
+      .then(resp => {
+        console.log(resp, "respuesta");
+        return resp.json();
+      })
+      .then(data => { console.log(data); })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+
 
 
   /* Guardar */
   const nuevaActividad = (event) => {
     setActividad(event.target.value);
-
   }
 
   /* Borrar */
-
   const borrarActividad = (indice) => {
     setActividades(actividades.filter((actividad, index) => index !== indice))
-
+    let deletetask = actividades.filter((actividad, index) => index !== indice)
+    modificarTareas(deletetask)
   }
 
   const guardarActividad = (event) => {
     event.preventDefault();
-    let nuevaAct =  {label: actividad, done: false}
+    let nuevaAct = { label: actividad, done: false }
     setActividades(actividades.concat(nuevaAct))
     setActividad("")
     /* Se aplica el metodo PUT del Fetch para guardar la tarea */
@@ -110,7 +130,6 @@ function App() {
         </div>
       </div>
     </div >
-
   );
 }
 
